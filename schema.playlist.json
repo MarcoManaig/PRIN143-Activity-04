@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://example.com/schema.student.json",
+    "title": "Playlist",
+    "description": "Defindes a playlist entity",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20
+        },
+        "artist": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20
+        },
+        "album": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20
+        },
+        "releaseYear": {
+            "type": "integer",
+            "minimum": 1990,
+            "maximum": 2025
+        },
+        "duration": {
+            "type": "object",
+            "properties": {
+                "minutes": {
+                    "type": "integer"
+                },
+                "seconds": {
+                    "type": "integer"
+                }
+            },
+            "maximum": 60
+        },
+        "statistics": {
+            "type": "object",
+            "properties": {
+                "plays": {
+                    "type": "integer"
+                },
+                "likes": {
+                    "type": "integer"
+                },
+                "shares": {
+                    "type": "integer"
+                }
+            },
+            "minimum": 0
+        },
+        "inDevice": {
+            "type": [
+                "boolean",
+                "null"
+            ]
+        },
+        "platform": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "Spotify",
+                    "Apple Music",
+                    "YouTube"
+                ]
+            },
+            "minimumProperties": 1
+        }
+    }
+}
